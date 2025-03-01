@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanha - Web Developer</title>
+  
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: black;
+      color: white;
+      line-height: 1.5;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      z-index: 50;
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: #ff3b3b;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff3b3b;
+    }
+
+    .nav-links a.active {
+      color: #ff3b3b;
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .menu-toggle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Projects Button (Mobile) */
+    .projects-button {
+      display: none;
+      background-color: #ff3b3b;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 1.5rem;
+      transition: background-color 0.3s;
+    }
+
+    .projects-button:hover {
+      background-color: #ff5555;
+    }
+
+
+    /* Footer */
+    footer {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    .footer-container {
+	
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+	  flex-direction: row !important;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      color: #d1d5db;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #ff3b3b;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(8px);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+  
+
+      .image-wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .profile-img {
+        height: 400px;
+      }
+
+      .projects-button {
+        display: inline-block;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">Kanha</a>
+      <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#">Project</a>
+        <a href="#">Contact</a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+
+     
+    <div class="calc-container">
+        <div class="calc-output">
+            <input type="text" class="calc-result" placeholder="0" disabled>
+        </div>
+        <div class="calc-row">
+            <button class="calc-ac">
+                AC
+            </button>
+            <button class="calc-delete">
+                DEL
+            </button>
+            <button class="calc-divide">
+                /
+            </button>
+            <button class="calc-percentage">
+                %
+            </button>
+        </div>
+        <div class="calc-row">
+            <button class="calc-seven">
+                7
+            </button>
+            <button class="calc-eight">
+                8
+            </button>
+            <button class="calc-nine">
+                9
+            </button>
+            <button class="calc-multiply">
+                *
+            </button>
+        </div>
+        <div class="calc-row">
+            <button class="calc-four">
+                4
+            </button>
+            <button class="calc-five">
+                5
+            </button>
+            <button class="calc-six">
+                6
+            </button>
+            <button class="calc-minus">
+                -
+            </button>
+        </div>
+        <div class="calc-row">
+            <button class="calc-one">
+                1
+            </button>
+            <button class="calc-two">
+                2
+            </button>
+            <button class="three">
+                3
+            </button>
+            <button class="calc-plus">
+                +
+            </button>
+        </div>
+        <div class="calc-row">
+            <button class="calc-double-zero">
+                00
+            </button>
+            <button class="calc-zero">
+                0
+            </button>
+            <button class="calc-dot">
+                .
+            </button>
+            <button class="calc-equal">
+                =
+            </button>
+        </div>
+    </div>
+
+
+ 
+ 
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p class="footer-text">© 2024 Kanha. All rights reserved.</p>
+      <div class="footer-links">
+        <p>Made by Kanha with ❤️</p>
+        <a href="#"></a>
+        <a href="#"></a>
+      </div>
+    </div>
+  </footer>
+  
+
+</body>
+     <script
+        src="calculator.js">
+    </script>
+</html>
